@@ -1,6 +1,6 @@
 package application;
 
-public class Product {
+public class Product implements Comparable<Product>{
 	private String name;
 	private double price;
 	private int qtd;
@@ -42,6 +42,11 @@ public class Product {
 	@Override
 	public String toString() {
 		return name+","+amount();
+	}
+
+	@Override
+	public int compareTo(Product o) {
+		return name.compareTo(o.getName());
 	}
 	
 }

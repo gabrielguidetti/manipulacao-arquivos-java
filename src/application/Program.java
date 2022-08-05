@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -34,10 +35,12 @@ public class Program {
 					info = line.split(",");
 				}
 			}
-			
+			System.out.println("Arquivo lido com sucesso!");
 		} catch(IOException e) {
 			System.out.println(e.getMessage());
 		}
+		
+		Collections.sort(products);
 		
 		String newPath = file.getParent()+"\\out";
 		boolean newFolder = new File(newPath).mkdir();
@@ -47,6 +50,7 @@ public class Program {
 				bw.write(p.toString());
 				bw.newLine();
 			}
+			System.out.println("output criado com sucesso!");
 		} catch(IOException e) {
 			System.out.println(e.getStackTrace());
 		}
